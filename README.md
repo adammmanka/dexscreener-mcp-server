@@ -4,7 +4,7 @@ An MCP server implementation for accessing the DexScreener API, providing real-t
 
 One-line install (automatically adds to Claude Desktop):
 ```bash
-curl -L https://raw.githubusercontent.com/opensvm/dexscreener-mcp-server/main/install.sh | bash
+curl -L https://raw.githubusercontent.com/adammmanka/dexscreener-mcp-server/main/install.sh | bash
 ```
 
 ## Features
@@ -56,7 +56,7 @@ The server can be used in Cursor with minimal configuration. Add this to your `.
       "command": "bash",
       "args": [
         "-lc",
-        "DIR=\"${TMPDIR:-/tmp}/dexscreener-mcp-$$\" && git clone --depth 1 https://github.com/opensvm/dexscreener-mcp-server \"$DIR\" >/dev/null && cd \"$DIR\" && npm ci --silent && npm run -s build && node build/index.js"
+        "DIR=\"${TMPDIR:-/tmp}/dexscreener-mcp-$$\" && git clone --depth 1 https://github.com/adammmanka/dexscreener-mcp-server \"$DIR\" >/dev/null && cd \"$DIR\" && npm ci --silent && npm run -s build && node build/index.js"
       ]
     }
   }
