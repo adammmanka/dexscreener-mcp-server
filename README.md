@@ -32,6 +32,51 @@ npm test
 
 ## Usage
 
+### Cursor Integration (No Config Required)
+
+The server can be used in Cursor with minimal configuration. Add this to your `.cursor/config.json`:
+
+**Option 1: Direct execution (if you have the repo locally)**
+```json
+{
+  "mcpServers": {
+    "dexscreener": {
+      "command": "node",
+      "args": ["/path/to/dexscreener-mcp-server/build/index.js"]
+    }
+  }
+}
+```
+
+**Option 2: Clone and run on-the-fly (no local files needed)**
+```json
+{
+  "mcpServers": {
+    "dexscreener": {
+      "command": "bash",
+      "args": [
+        "-lc",
+        "DIR=\"${TMPDIR:-/tmp}/dexscreener-mcp-$$\" && git clone --depth 1 https://github.com/opensvm/dexscreener-mcp-server \"$DIR\" >/dev/null && cd \"$DIR\" && npm ci --silent && npm run -s build && node build/index.js"
+      ]
+    }
+  }
+}
+```
+
+**Option 3: Via npx (if published to npm)**
+```json
+{
+  "mcpServers": {
+    "dexscreener": {
+      "command": "npx",
+      "args": ["-y", "dexscreener-mcp-server"]
+    }
+  }
+}
+```
+
+After adding the config, restart Cursor and use Command Palette → "MCP: List Tools" to verify.
+
 ### Available Tools
 
 1. `get_latest_token_profiles`
